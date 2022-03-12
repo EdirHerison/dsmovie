@@ -30,6 +30,10 @@ function Listing() {
             });
     }, [pageNumber]);
 
+    const handlePageChange = (newPageNumber : number) => {
+        setPageNumber(newPageNumber);
+    }
+
 
     /*Teste de requisição do frontend para o backend "FORMA ERRADA"
     axios.get(`${BASE_URL}/movies`)
@@ -41,7 +45,7 @@ function Listing() {
 
     return (
         <>
-            <Pagination />
+            <Pagination page = {page} onChange={handlePageChange} />
             <div className="container">
                 <div className="row">
                     {page.content.map(movie => (
